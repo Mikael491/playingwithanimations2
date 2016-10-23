@@ -49,6 +49,24 @@ class ViewController: UIViewController, CAAnimationDelegate {
         keyFrameAnimation.duration = 1
         keyFrameAnimation.beginTime = CACurrentMediaTime() + 1
         
+        //initial, middle, final animation values
+        let initial = NSValue(cgRect: (mask?.bounds)!)
+        let middle = NSValue(cgRect: CGRect(x: 0, y: 0, width: 90, height: 90))
+        let final = NSValue(cgRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))
+        
+        //assign to key frame values and key times
+        keyFrameAnimation.values = [initial, middle, final]
+        keyFrameAnimation.keyTimes = [0, 0.3, 1]
+        
+        //animation time functions
+            keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)]
+        
+        self.mask?.add(keyFrameAnimation, forKey: "bounds")
+        
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.twitterFeed.layer.mask = nil
     }
 
 }
