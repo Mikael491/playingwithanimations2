@@ -29,12 +29,15 @@ class ViewController: UIViewController, CAAnimationDelegate {
 
         //set up mask
         self.mask = CALayer()
-        self.mask?.contents = UIImage(named: "twitter logo mask")
+        self.mask?.contents = UIImage(named: "twitter logo mask")?.cgImage
         self.mask?.contentsGravity = kCAGravityResizeAspect
         self.mask?.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.mask?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.mask?.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
         
+        self.twitterFeed.layer.mask = mask!
+        
+        self.view.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
         
         
     }
