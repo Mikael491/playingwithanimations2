@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CAAnimationDelegate {
     
     @IBOutlet weak var twitterFeed: UIImageView!
     
@@ -34,6 +34,17 @@ class ViewController: UIViewController {
         self.mask?.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.mask?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.mask?.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        
+        
+        
+    }
+    
+    func animate() {
+        
+        let keyFrameAnimation = CAKeyframeAnimation(keyPath: "bounds")
+        keyFrameAnimation.delegate = self
+        keyFrameAnimation.duration = 1
+        keyFrameAnimation.beginTime = CACurrentMediaTime() + 1
         
     }
 
