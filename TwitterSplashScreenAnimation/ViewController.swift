@@ -39,6 +39,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         
         self.view.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
         
+        animate()
         
     }
     
