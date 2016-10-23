@@ -53,7 +53,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         //initial, middle, final animation values
         let initial = NSValue(cgRect: (mask?.bounds)!)
         let middle = NSValue(cgRect: CGRect(x: 0, y: 0, width: 90, height: 90))
-        let final = NSValue(cgRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))
+        let final = NSValue(cgRect: CGRect(x: 0, y: 0, width: 2200, height: 2200))
         
         //assign to key frame values and key times
         keyFrameAnimation.values = [initial, middle, final]
